@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income Certificate Application - e-District Kerala</title>
+  <link rel="stylesheet" href="/static/css/portal.css">
+  <script src="/static/js/portal.js" defer></script>
+  <script src="/static/js/kiosk_ui.js" defer></script>
+  <script src="/static/js/visual_cards.js" defer></script>
+</head>
+<body>
+
+  <!-- Privacy Shield Overlay for Blind / Low-Vision Mode -->
+  <div class="privacy-shield-overlay" id="privacyShield">
+    <div class="privacy-shield-icon">🔒</div>
+    <div class="privacy-shield-text">Terminal in Private Audio Session</div>
+    <div class="privacy-shield-subtext">Screen is dimmed for your personal data protection. Directional audio is active.</div>
+  </div>
+
+  <div class="kiosk-app-container">
+    <!-- Header -->
+    <header class="portal-header">
+      <div class="portal-brand">
+        <div class="emblem-placeholder">KL GOV</div>
+        <div class="brand-titles">
+          <h1>e-District Kerala Civic Services</h1>
+          <p>Government of Kerala • Revenue Department Portal</p>
+        </div>
+      </div>
+      <div class="header-accessibility-tools">
+        <button type="button" id="btnSignLanguage">
+          <span>🤟</span>
+          <span>Start Sign Language Input</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-wrapper">
+      <div class="form-card">
+        <div class="form-header">
+          <h2>Application for Income Certificate</h2>
+          <p>Official Revenue Department Form for Scholarship, Higher Education, and Civic Schemes</p>
+        </div>
+
+        <form id="frmIncomeCertificate" action="/api/submit-application" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="service_type" value="INCOME_CERTIFICATE">
+
+          <div class="form-grid">
+            <!-- Applicant Name -->
+            <div class="form-group full-width">
+              <label for="txtApplicantName">Full Name of Applicant <span class="required">*</span></label>
+              <input type="text" id="txtApplicantName" name="applicant_name" required placeholder="Enter full name as per Aadhaar">
+              <span class="form-help-hint">Must match official identification documents</span>
+            </div>
+
+            <!-- Aadhaar Number -->
+            <div class="form-group full-width">
+              <label for="txtAadhaarNo">Aadhaar Number (12 Digits) <span class="required">*</span></label>
+              <input type="text" id="txtAadhaarNo" name="aadhaar_no" pattern="[0-9]{12}" maxlength="12" required placeholder="12-digit UID (e.g. 987654321098)">
+              <span class="form-help-hint">Exact 12 numeric digits required</span>
+            </div>
+
+            <!-- District Cascading Dropdown -->
+            <div class="form-group">
+              <label for="ddlDistrict">District <span class="required">*</span></label>
+              <select id="ddlDistrict" name="district" required>
+                <option value="">-- Select District --</option>
+                <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                <option value="Ernakulam">Ernakulam</option>
+                <option value="Kozhikode">Kozhikode</option>
+                <option value="Thrissur">Thrissur</option>
+                <option value="Kannur">Kannur</option>
+              </select>
+            </div>
+
+            <!-- Taluk Dropdown -->
+            <div class="form-group">
+              <label for="ddlTaluk">Taluk <span class="required">*</span></label>
+              <select id="ddlTaluk" name="taluk" required disabled>
+                <option value="">-- Select District First --</option>
+              </select>
+            </div>
+
+            <!-- Village Dropdown -->
+            <div class="form-group full-width">
+              <label for="ddlVillage">Village Office <span class="required">*</span></label>
+              <select id="ddlVillage" name="village" required disabled>
+                <option value="">-- Select Taluk First --</option>
+              </select>
+            </div>
+
+            <!-- Ration Card Number -->
+            <div class="form-group">
+              <label for="txtRationCardNo">Ration Card Number <span class="required">*</span></label>
+              <input type="text" id="txtRationCardNo" name="ration_card_no" required placeholder="e.g. 2451098">
+            </div>
+
+            <!-- Annual Family Income -->
+            <div class="form-group">
+              <label for="txtAnnualIncome">Annual Family Income (in INR) <span class="required">*</span></label>
+              <input type="number" id="txtAnnualIncome" name="annual_income" min="1" required placeholder="e.g. 75000">
+              <span class="form-help-hint">Income from all sources in Indian Rupees</span>
+            </div>
+
+            <!-- Purpose Dropdown -->
+            <div class="form-group full-width">
+              <label for="ddlPurpose">Purpose of Certificate <span class="required">*</span></label>
+              <select id="ddlPurpose" name="purpose" required>
+                <option value="">-- Select Purpose --</option>
+                <option value="Higher Education">Higher Education</option>
+                <option value="Scholarship">Scholarship</option>
+                <option value="Housing Scheme">Housing Scheme</option>
+                <option value="General">General</option>
+              </select>
+            </div>
+
+            <!-- Aadhaar / Proof File Upload -->
+            <div class="form-group full-width">
+              <label for="fileAadhaar">Upload Identity Proof / Aadhaar Document <span class="required">*</span></label>
+              <input type="file" id="fileAadhaar" name="proof_document" accept=".pdf,.png,.jpg" required>
+              <span class="form-help-hint">Accepted formats: .pdf, .png, .jpg. Document scanner will auto-attach capture.</span>
+
+              <div class="pro-forma-download-box">
+                <span>Need self-declaration affidavit template for informal earnings?</span>
+                <a href="/docs/self-declaration-affidavit.pdf" target="_blank" download>Download Pro-Forma PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn-cancel" onclick="window.history.back()">Cancel</button>
+            <button type="submit" id="btnSubmit" class="btn-submit">Submit Application</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2026 Kerala State Information Technology Mission (KSITM). Designed for Accessible Public Kiosks.</p>
+    </footer>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "income_certificate": {
+    "primary_proof": "Salary Slip or Form 16 from employer",
+    "alternative_proofs": [
+      "Self-declaration affidavit for daily wage or informal workers (Downloadable pro-forma template available)",
+      "Ration card copy with annual income entry",
+      "Bank account statement showing last 6 months transactions",
+      "Agricultural land tax receipt with estimated yield"
+    ],
+    "identity_proof": [
+      "Aadhaar Card (12-digit UID)",
+      "Voter ID Card (EPIC)",
+      "Passport"
+    ]
+  },
+  "disability_pension": {
+    "primary_proof": "Medical Board Disability Assessment Certificate (>40% disability)",
+    "alternative_proofs": [
+      "Unique Disability ID (UDID) Card issued by Ministry of Social Justice",
+      "Hospital Superintendent Provisional Evaluation Certificate"
+    ],
+    "banking_proof": [
+      "Bank passbook front page showing IFSC code and Account number",
+      "Cancelled cheque leaf"
+    ]
+  },
+  "community_certificate": {
+    "primary_proof": "SSLC / School Leaving Certificate specifying caste and religion",
+    "alternative_proofs": [
+      "Community certificate of father or mother",
+      "Gazette notification of religious or caste conversion",
+      "Ration card mentioning caste endorsement"
+    ]
+  }
+}

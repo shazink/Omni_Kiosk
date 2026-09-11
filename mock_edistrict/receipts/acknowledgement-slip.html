@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Acknowledgement Slip - e-District Kerala</title>
+  <link rel="stylesheet" href="/static/css/portal.css">
+  <style>
+    .receipt-container {
+      max-width: 680px;
+      margin: 40px auto;
+      background: #ffffff;
+      border: 2px solid #0d47a1;
+      border-radius: 8px;
+      padding: 32px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    .receipt-header {
+      text-align: center;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .receipt-header h1 {
+      font-size: 22px;
+      color: #0d47a1;
+      margin-bottom: 4px;
+    }
+    .tracking-badge {
+      display: inline-block;
+      background: #e8f5e9;
+      color: #2e7d32;
+      border: 1px solid #a5d6a7;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin: 16px 0;
+    }
+    .receipt-details {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    .receipt-details td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+    .receipt-details td.label {
+      font-weight: 600;
+      color: #555555;
+      width: 40%;
+    }
+    .receipt-codes {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 28px 0;
+      padding: 16px;
+      background: #fafafa;
+      border-radius: 6px;
+    }
+    .barcode-container, .qrcode-container {
+      text-align: center;
+    }
+    .receipt-footer {
+      text-align: center;
+      font-size: 12px;
+      color: #888888;
+      border-top: 1px dashed #cccccc;
+      padding-top: 16px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="receipt-container">
+    <div class="receipt-header">
+      <h1>Government of Kerala • e-District Portal</h1>
+      <p>Official Citizen Service Application Acknowledgement Receipt</p>
+      <div class="tracking-badge" id="trackingIdDisplay">
+        Tracking ID: <span id="lblTrackingId">KL-EDIST-2026-1042</span>
+      </div>
+    </div>
+
+    <table class="receipt-details">
+      <tr>
+        <td class="label">Service Name:</td>
+        <td id="lblService">Income Certificate</td>
+      </tr>
+      <tr>
+        <td class="label">Applicant Name:</td>
+        <td id="lblApplicant">Arun Kumar</td>
+      </tr>
+      <tr>
+        <td class="label">Submission Timestamp:</td>
+        <td id="lblTimestamp">2026-09-11 10:15:22 IST</td>
+      </tr>
+      <tr>
+        <td class="label">Designated Office:</td>
+        <td id="lblOffice">Village Office Nemom, Neyyattinkara Taluk</td>
+      </tr>
+      <tr>
+        <td class="label">Statutory SLA Window:</td>
+        <td>7 Working Days</td>
+      </tr>
+      <tr>
+        <td class="label">Application Status:</td>
+        <td><strong style="color: #2e7d32;">Submitted & Pending Verification</strong></td>
+      </tr>
+    </table>
+
+    <div class="receipt-codes">
+      <!-- SVG Barcode representation -->
+      <div class="barcode-container">
+        <svg width="220" height="50" viewBox="0 0 220 50">
+          <rect x="10" y="5" width="3" height="40" fill="#000"/>
+          <rect x="16" y="5" width="2" height="40" fill="#000"/>
+          <rect x="22" y="5" width="6" height="40" fill="#000"/>
+          <rect x="32" y="5" width="3" height="40" fill="#000"/>
+          <rect x="38" y="5" width="5" height="40" fill="#000"/>
+          <rect x="47" y="5" width="2" height="40" fill="#000"/>
+          <rect x="53" y="5" width="4" height="40" fill="#000"/>
+          <rect x="61" y="5" width="7" height="40" fill="#000"/>
+          <rect x="72" y="5" width="3" height="40" fill="#000"/>
+          <rect x="79" y="5" width="5" height="40" fill="#000"/>
+          <rect x="88" y="5" width="2" height="40" fill="#000"/>
+          <rect x="94" y="5" width="6" height="40" fill="#000"/>
+          <rect x="104" y="5" width="4" height="40" fill="#000"/>
+          <rect x="112" y="5" width="3" height="40" fill="#000"/>
+          <rect x="119" y="5" width="6" height="40" fill="#000"/>
+          <rect x="129" y="5" width="3" height="40" fill="#000"/>
+          <rect x="136" y="5" width="5" height="40" fill="#000"/>
+          <rect x="145" y="5" width="2" height="40" fill="#000"/>
+          <rect x="151" y="5" width="6" height="40" fill="#000"/>
+          <rect x="161" y="5" width="4" height="40" fill="#000"/>
+          <rect x="169" y="5" width="3" height="40" fill="#000"/>
+          <rect x="176" y="5" width="5" height="40" fill="#000"/>
+          <rect x="185" y="5" width="2" height="40" fill="#000"/>
+          <rect x="191" y="5" width="6" height="40" fill="#000"/>
+          <rect x="201" y="5" width="3" height="40" fill="#000"/>
+        </svg>
+        <div style="font-size: 11px; font-family: monospace; margin-top: 4px;" id="barcodeText">KL-EDIST-2026-1042</div>
+      </div>
+
+      <!-- SVG QR Code placeholder -->
+      <div class="qrcode-container">
+        <svg width="60" height="60" viewBox="0 0 60 60">
+          <rect x="5" y="5" width="18" height="18" fill="none" stroke="#000" stroke-width="4"/>
+          <rect x="9" y="9" width="10" height="10" fill="#000"/>
+          <rect x="37" y="5" width="18" height="18" fill="none" stroke="#000" stroke-width="4"/>
+          <rect x="41" y="9" width="10" height="10" fill="#000"/>
+          <rect x="5" y="37" width="18" height="18" fill="none" stroke="#000" stroke-width="4"/>
+          <rect x="9" y="41" width="10" height="10" fill="#000"/>
+          <rect x="28" y="10" width="4" height="15" fill="#000"/>
+          <rect x="28" y="32" width="15" height="4" fill="#000"/>
+          <rect x="38" y="42" width="12" height="12" fill="#000"/>
+        </svg>
+        <div style="font-size: 10px; color: #666;">Verify Online</div>
+      </div>
+    </div>
+
+    <div class="receipt-footer">
+      This is a digitally generated acknowledgement from OmniKiosk Civic Terminal.<br>
+      No physical signature required. Retain tracking ID for SMS status alerts.
+    </div>
+  </div>
+
+  <script>
+    // Parse URL query params if present to render dynamic ID
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    const applicant = urlParams.get('applicant');
+    const office = urlParams.get('office');
+    if (id) {
+      document.getElementById('lblTrackingId').textContent = id;
+      document.getElementById('barcodeText').textContent = id;
+    }
+    if (applicant) {
+      document.getElementById('lblApplicant').textContent = applicant;
+    }
+    if (office) {
+      document.getElementById('lblOffice').textContent = office;
+    }
+  </script>
+</body>
+</html>

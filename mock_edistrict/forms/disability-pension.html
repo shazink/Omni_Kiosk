@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disability Pension Application - e-District Kerala</title>
+  <link rel="stylesheet" href="/static/css/portal.css">
+  <script src="/static/js/portal.js" defer></script>
+  <script src="/static/js/kiosk_ui.js" defer></script>
+  <script src="/static/js/visual_cards.js" defer></script>
+</head>
+<body>
+
+  <div class="privacy-shield-overlay" id="privacyShield">
+    <div class="privacy-shield-icon">🔒</div>
+    <div class="privacy-shield-text">Terminal in Private Audio Session</div>
+    <div class="privacy-shield-subtext">Screen is dimmed for your personal data protection. Directional audio is active.</div>
+  </div>
+
+  <div class="kiosk-app-container">
+    <header class="portal-header">
+      <div class="portal-brand">
+        <div class="emblem-placeholder">KL GOV</div>
+        <div class="brand-titles">
+          <h1>e-District Kerala Civic Services</h1>
+          <p>Social Welfare Department • Disability Welfare Division</p>
+        </div>
+      </div>
+      <div class="header-accessibility-tools">
+        <button type="button" id="btnSignLanguage">
+          <span>🤟</span>
+          <span>Start Sign Language Input</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="main-wrapper">
+      <div class="form-card">
+        <div class="form-header">
+          <h2>Application for Disability Pension</h2>
+          <p>Direct Benefit Transfer Scheme for Differently-Abled Citizens</p>
+        </div>
+
+        <form id="frmDisabilityPension" action="/api/submit-application" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="service_type" value="DISABILITY_PENSION">
+
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="applicantName">Full Name of Applicant <span class="required">*</span></label>
+              <input type="text" id="applicantName" name="applicant_name" required placeholder="Enter full name">
+            </div>
+
+            <div class="form-group full-width">
+              <label for="aadhaarNo">Aadhaar UID (12 Digits) <span class="required">*</span></label>
+              <input type="text" id="aadhaarNo" name="aadhaar_no" pattern="[0-9]{12}" maxlength="12" required placeholder="12-digit Aadhaar UID">
+            </div>
+
+            <div class="form-group">
+              <label for="disabilityCategory">Disability Category <span class="required">*</span></label>
+              <select id="disabilityCategory" name="disability_category" required>
+                <option value="">-- Select Category --</option>
+                <option value="Locomotor / Orthopedic">Locomotor / Orthopedic</option>
+                <option value="Visual Impairment">Visual Impairment</option>
+                <option value="Hearing / Speech Impairment">Hearing / Speech Impairment</option>
+                <option value="Intellectual Disability">Intellectual Disability</option>
+                <option value="Multiple Disabilities">Multiple Disabilities</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="disabilityPercent">Disability Percentage (%) <span class="required">*</span></label>
+              <input type="number" id="disabilityPercent" name="disability_percent" min="40" max="100" required placeholder="Minimum 40%">
+              <span class="form-help-hint">Minimum 40% required as per Medical Board</span>
+            </div>
+
+            <div class="form-group">
+              <label for="bankAccountNo">Bank Account Number <span class="required">*</span></label>
+              <input type="text" id="bankAccountNo" name="bank_account_no" required placeholder="Savings Account Number">
+            </div>
+
+            <div class="form-group">
+              <label for="ifscCode">Bank IFSC Code <span class="required">*</span></label>
+              <input type="text" id="ifscCode" name="ifsc_code" pattern="^[A-Z]{4}0[A-Z0-9]{6}$" required placeholder="e.g. SBIN0001234">
+            </div>
+
+            <div class="form-group full-width">
+              <label for="fileMedicalBoard">Upload Medical Board Assessment Certificate <span class="required">*</span></label>
+              <input type="file" id="fileMedicalBoard" name="medical_proof" accept=".pdf,.png,.jpg" required>
+              <div class="pro-forma-download-box">
+                <span>Download official Medical Board Assessment pro-forma template:</span>
+                <a href="/docs/medical-board-assessment.pdf" target="_blank" download>Download Pro-Forma PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn-cancel" onclick="window.history.back()">Cancel</button>
+            <button type="submit" id="btnSubmit" class="btn-submit">Submit Application</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2026 Kerala State Information Technology Mission (KSITM). Social Welfare Portal.</p>
+    </footer>
+  </div>
+
+</body>
+</html>

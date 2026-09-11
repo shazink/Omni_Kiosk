@@ -1,0 +1,109 @@
+{
+  "service_name": "Income Certificate",
+  "form_url": "http://localhost:3000/forms/income-certificate.html",
+  "fields": [
+    {
+      "id": "btnSignLanguage",
+      "type": "button",
+      "name": "btnSignLanguage",
+      "required": false,
+      "label": "button"
+    },
+    {
+      "id": "txtApplicantName",
+      "name": "applicant_name",
+      "type": "text",
+      "required": true,
+      "placeholder": "Enter full name as per Aadhaar",
+      "label": "Full Name of Applicant"
+    },
+    {
+      "id": "txtAadhaarNo",
+      "name": "aadhaar_no",
+      "type": "text",
+      "required": true,
+      "placeholder": "12-digit UID (e.g. 987654321098)",
+      "label": "Aadhaar Number (12 Digits)",
+      "pattern": "[0-9]{12}"
+    },
+    {
+      "id": "ddlDistrict",
+      "name": "district",
+      "type": "select",
+      "required": true,
+      "label": "District",
+      "options": [
+        "Thiruvananthapuram",
+        "Ernakulam",
+        "Kozhikode",
+        "Thrissur",
+        "Kannur"
+      ]
+    },
+    {
+      "id": "ddlTaluk",
+      "name": "taluk",
+      "type": "select",
+      "required": true,
+      "label": "Taluk",
+      "options": []
+    },
+    {
+      "id": "ddlVillage",
+      "name": "village",
+      "type": "select",
+      "required": true,
+      "label": "Village Office",
+      "options": []
+    },
+    {
+      "id": "txtRationCardNo",
+      "name": "ration_card_no",
+      "type": "text",
+      "required": true,
+      "placeholder": "e.g. 2451098",
+      "label": "Ration Card Number"
+    },
+    {
+      "id": "txtAnnualIncome",
+      "name": "annual_income",
+      "type": "number",
+      "required": true,
+      "placeholder": "e.g. 75000",
+      "label": "Annual Family Income (in INR)",
+      "min": "1"
+    },
+    {
+      "id": "ddlPurpose",
+      "name": "purpose",
+      "type": "select",
+      "required": true,
+      "label": "Purpose of Certificate",
+      "options": [
+        "Higher Education",
+        "Scholarship",
+        "Housing Scheme",
+        "General"
+      ]
+    },
+    {
+      "id": "fileAadhaar",
+      "name": "proof_document",
+      "type": "file",
+      "required": true,
+      "placeholder": "",
+      "label": "Upload Identity Proof / Aadhaar Document",
+      "accept": ".pdf,.png,.jpg"
+    },
+    {
+      "id": "btnSubmit",
+      "type": "button",
+      "name": "btnSubmit",
+      "required": false,
+      "label": "submit"
+    }
+  ],
+  "downloaded_docs": [
+    "downloads/self-declaration-affidavit.pdf"
+  ]
+}
