@@ -1,0 +1,79 @@
+{
+  "service_name": "Income Certificate",
+  "form_url": "http://localhost:3000/forms/income-certificate.html",
+  "fields": [
+    {
+      "id": "txtApplicantName",
+      "type": "text",
+      "required": true,
+      "label": "Full Name"
+    },
+    {
+      "id": "txtAadhaarNo",
+      "type": "text",
+      "pattern": "[0-9]{12}",
+      "required": true,
+      "label": "Aadhaar UID"
+    },
+    {
+      "id": "ddlDistrict",
+      "type": "select",
+      "options": [
+        "Thiruvananthapuram",
+        "Ernakulam",
+        "Kozhikode",
+        "Thrissur",
+        "Kannur"
+      ],
+      "required": true,
+      "label": "District"
+    },
+    {
+      "id": "ddlTaluk",
+      "type": "select",
+      "required": true,
+      "label": "Taluk"
+    },
+    {
+      "id": "ddlVillage",
+      "type": "select",
+      "required": true,
+      "label": "Village"
+    },
+    {
+      "id": "txtRationCardNo",
+      "type": "text",
+      "required": true,
+      "label": "Ration Card Number"
+    },
+    {
+      "id": "txtAnnualIncome",
+      "type": "number",
+      "min": "1",
+      "required": true,
+      "label": "Annual Income"
+    },
+    {
+      "id": "ddlPurpose",
+      "type": "select",
+      "options": [
+        "Higher Education",
+        "Scholarship",
+        "Housing Scheme",
+        "General"
+      ],
+      "required": true,
+      "label": "Purpose"
+    },
+    {
+      "id": "fileAadhaar",
+      "type": "file",
+      "accept": ".pdf,.png,.jpg",
+      "required": true,
+      "label": "Aadhaar Document"
+    }
+  ],
+  "downloaded_docs": [
+    "downloads/self-declaration-affidavit.pdf"
+  ]
+}
